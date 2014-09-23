@@ -13,7 +13,7 @@ module Subscribem
 
       if @account.valid?
         force_authentication!(@account.owner)
-        @account.create_schema
+        # @account.create_schema
         flash[:success] = "Your account has been successfully created."
         redirect_to subscribem.root_url(:subdomain => @account.subdomain)
       else

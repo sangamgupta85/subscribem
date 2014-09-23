@@ -32,8 +32,10 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "factory_girl", "4.4.0"
 
-  s.add_dependency "apartment", "0.24.3"
+  #s.add_dependency "apartment", "0.24.3"
 
   s.add_development_dependency "database_cleaner", "1.3.0"
+
+  s.add_dependency "houser", "1.0.2"
 
 end

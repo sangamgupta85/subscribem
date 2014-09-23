@@ -1,14 +1,21 @@
 require "rails_helper"
   feature "Account scoping" do
-    let!(:account_a) { FactoryGirl.create(:account_with_schema) }
-    let!(:account_b) { FactoryGirl.create(:account_with_schema) }
+    
+    let!(:account_a) { FactoryGirl.create(:account) }
+    let!(:account_b) { FactoryGirl.create(:account) }
+
+    # let!(:account_a) { FactoryGirl.create(:account_with_schema) }
+    # let!(:account_b) { FactoryGirl.create(:account_with_schema) }
 
     before do
-      Apartment::Database.switch(account_a.subdomain)
-      Thing.create(:name => "Account A's Thing")
-      Apartment::Database.switch(account_b.subdomain)
-      Thing.create(:name => "Account B's Thing")
-      Apartment::Database.reset
+      # Apartment::Database.switch(account_a.subdomain)
+      #Thing.create(:name => "Account A's Thing")
+      # Apartment::Database.switch(account_b.subdomain)
+      #Thing.create(:name => "Account B's Thing")
+      # Apartment::Database.reset
+
+      Thing.scoped_to(account_a).create(:name => "Account A's Thing")
+      Thing.scoped_to(account_b).create(:name => "Account B's Thing")
     end
 
     scenario "displays only account A's records" do
