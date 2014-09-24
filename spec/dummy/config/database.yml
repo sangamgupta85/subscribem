@@ -1,9 +1,21 @@
 development:
   adapter: postgresql
   database: subscribem_development
+  username: sangam
+  password: Halosys1 
+  host: localhost
+  port: 5432
+  pool: 5
+  timeout: 5000
   min_messages: warning
 
 test:
   adapter: postgresql
   database: subscribem_test
+  username: sangam
+  password: Halosys1 
+  host: localhost
+  port: 5432
+  pool: 5
+  timeout: 5000
   min_messages: warning
