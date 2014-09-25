@@ -2,6 +2,7 @@ require_dependency "subscribem/application_controller"
 
 module Subscribem
   class AccountsController < ApplicationController
+    skip_before_filter :verify_authenticity_token 
 
   	def new
       @account = Subscribem::Account.new
